@@ -2,6 +2,11 @@ const themeBtn=document.querySelector("#theme-toggle");
 const modeLight=document.querySelector("#mode-light");
 const modeDark=document.querySelector("#mode-dark");
 
+document.addEventListener("DOMContentLoaded",()=>{
+    const modeLight=document.querySelector("#mode-light");
+    const modeDark=document.querySelector("#mode-dark");
+});
+
 const body=document.body;
 if(localStorage.getItem("currentTheme")==="dark")
 {
@@ -38,3 +43,39 @@ themeBtn.addEventListener("click", ()=>{
     }
 
 })
+
+fetch("lang.json")
+.then(response=>response.json())
+.then(data=>{
+    const language=localStorage.getItem("language") || "en";
+    applyLanguage(data,language);
+    document.getElementById("language-select").value=language;
+    document.getElementById("language-select").addEventListener("change",(event)=>{
+        const selectedLanguage=event.target.value;
+        applyLanguage(data,selectedLanguage);
+        localStorage.setItem("language",selectedLanguage);
+    });
+});
+
+function applyLanguage(data,language){
+    const elements={
+        title: "title",
+        navHome: "#nav-home",
+        navProducts: "#nav-products",
+        navAbout: "#nav-about",
+        welcomeMessage: ".hero h2",
+        shopNow: ".hero .btn",
+        aboutUsTitle: ".about h2",
+        aboutUsText: ".about p",
+        footerText: "footer p"
+    };
+
+    for(let key in elements){
+       const element=document.querySelector(elements[key]);
+       
+       if(element){
+        element.textContent=data[language][key];
+       }
+       
+    }
+}

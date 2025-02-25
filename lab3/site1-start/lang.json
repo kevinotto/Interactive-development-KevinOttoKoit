@@ -1,9 +1,9 @@
 { 
   "en": {
       "title": "E-Commerce Demo",
-      "home": "Home",
-      "products": "Products",
-      "about": "About",
+      "navHome": "Home",
+      "navProducts": "Products",
+      "navAbout": "About",
       "themeToggle": "Toggle Theme",
       "welcomeMessage": "Welcome to Our Store",
       "shopNow": "Shop Now",
@@ -20,9 +20,9 @@
   },
   "fr": {
     "title": "Démo E-Commerce",
-    "home": "Accueil",
-    "products": "Produits",
-    "about": "À Propos",
+    "navHome": "Accueil",
+    "navProducts": "Produits",
+    "navAbout": "À Propos",
     "themeToggle": "Changer de Thème",
     "welcomeMessage": "Bienvenue dans Notre Magasin",
     "shopNow": "Acheter Maintenant",
