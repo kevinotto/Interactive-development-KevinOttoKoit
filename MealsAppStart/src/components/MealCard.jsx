@@ -1,20 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const MealCard = () => {
+const MealCard = ({ meal, addToFavorites }) => {
   return (
-    <div className="meal">
-      <div className="meal-header">
-        {isRandom && <span className="random">Meal of the Day</span>}
-        <img src={mealData.strMealThumb} akt=""/>
-      </div>
-      <div className="meal-body">
-        <h3>{mealData.strMeal}</h3>
-        <button className='fav-btn'>
-          <i className='fas fa-heart'></i>
-        </button>
-      </div>
+    <div className="meal-card">
+      <img src={meal.strMealThumb} alt={meal.strMeal} />
+      <h3>{meal.strMeal}</h3>
+      <button onClick={() => addToFavorites(meal)}>Add to Favorites</button>
     </div>
-  )
-}
+  );
+};
 
-export default MealCard
+export default MealCard;
