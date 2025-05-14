@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 const RANDOM_API = import.meta.env.VITE_RANDOM_MEAL_API;
 const MEAL_BYID_API = import.meta.env.VITE_MEAL_BYID_API;
-const SEARCH_API = import.meta.env.VITE_SEARCH_MEAL_API
+const SEARCH_API = import.meta.env.VITE_SEARCH_MEAL_API;
 
 const Home = () => {
     const [randomMeal, setRandomMeal] = useState(null);
@@ -14,6 +14,7 @@ const Home = () => {
     const [meals, setMeals] = useState([]);
 
     useEffect(() => {
+        fetch('/package.json')
         loadRandomMeal();
         loadFavorites();
     },[])

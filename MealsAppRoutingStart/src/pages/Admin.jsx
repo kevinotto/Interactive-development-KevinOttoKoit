@@ -1,9 +1,11 @@
-import React from "react";
+import React from 'react'
 
-function Admin(){
-    return(
-        export default function ProtectedRoute({children}){
-            if (!isAuthenticated)
-        }
-    )
+function Admin() {
+  return (
+    <div>
+      <H1>This is the admin page!!!</H1>
+    </div>
+  )
 }
+
+export default Admin
