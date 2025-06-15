@@ -6,6 +6,12 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html, body, #root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #f5f5f5;
   color: #333;
@@ -151,8 +157,8 @@ a {
 .meal-header {
   position: relative;
   cursor: pointer;
-  height: 250px; /* Fixed height */
-  overflow: hidden; /* Ensures content stays within bounds */
+  height: 250px;
+  overflow: hidden;
 }
 
 .meal-header img {
@@ -180,7 +186,7 @@ a {
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%; /* Ensure consistent height */
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -191,8 +197,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-grow: 1; /* Allows this section to grow if needed */
-  min-height: 80px; /* Minimum height for the text/button area */
+  flex-grow: 1;
+  min-height: 80px;
 }
 
 .meal-body h3 {
@@ -235,7 +241,7 @@ a {
 /* Meal Details Page */
 .meal-container {
   max-width: 1000px;
-  margin: 0 auto;
+  margin-top: 10px;
   padding: 30px;
 }
 
@@ -261,9 +267,10 @@ a {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.meal-info h1 {
-  margin-bottom: 20px;
-  color: #333;
+.meal-info h1,
+.meal-details h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
 }
 
 .meal-info img {
@@ -288,6 +295,82 @@ a {
 
 .meal-info li:last-child {
   border-bottom: none;
+}
+
+.about-paragraph {
+  margin-bottom: 12px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+p {
+  font-size: x-large;
+}
+
+a {
+  font-size: x-large;
+}
+
+.center-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.center-wrapper > *:not(.meal-details-container):not(.meal-container) {
+  max-width:max-content;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.center-wrapper > .meal-details-container,
+.center-wrapper > .meal-container {
+  max-width: 1400px !important;
+  width: 100% !important;
+}
+
+.meal-details,
+.meal-info {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.instructions, .ingredients {
+  width: 100%;
+}
+
+.instructions p {
+  max-width: 100%;
+  width: 100%;
+  font-size: x-large;
+  text-align: left;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: center;
+}
+
+.nav-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 /* Responsive Design */
@@ -326,11 +409,11 @@ a {
   }
 }
 
-/* MealDetails.css */
 .meal-details-container {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
+  box-sizing: border-box;
 }
 
 .back-link {
@@ -344,16 +427,33 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.meal-image {
+  grid-column: 1;
+}
+
+.ingredients {
+  grid-column: 2;
+}
+
+.instructions {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto 0 auto;
+  text-align: left;
 }
 
 .meal-image img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  width: 80%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .meal-area {
@@ -376,10 +476,13 @@ a {
 .instructions p {
   white-space: pre-line;
   line-height: 1.6;
+  text-align: left;
 }
+
 
 @media (max-width: 768px) {
   .meal-details {
     grid-template-columns: 1fr;
+    width: 100%;
   }
 }

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
@@ -49,23 +48,21 @@ const MealDetails = () => {
           {meal.strArea && <p className="meal-area">{meal.strArea}</p>}
         </div>
         
-        <div className="meal-info">
-          <div className="ingredients">
-            <h2>Ingredients</h2>
-            <ul>
-              {ingredients.map((item, index) => (
-                <li key={index}>
-                  <span className="ingredient-name">{item.name}</span>
-                  <span className="ingredient-measure">{item.measure}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div className="instructions">
-            <h2>Instructions</h2>
-            <p>{meal.strInstructions}</p>
-          </div>
+        <div className="ingredients">
+          <h2>Ingredients</h2>
+          <ul>
+            {ingredients.map((item, index) => (
+              <li key={index}>
+                <span className="ingredient-name">{item.name}</span>
+                <span className="ingredient-measure">{item.measure}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <div className="instructions">
+          <h2>Instructions</h2>
+          <p>{meal.strInstructions}</p>
         </div>
       </div>
     </div>

@@ -13,22 +13,28 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contacts' element={<Contacts />} />
-        <Route path='/meal/:id' element={<Meal />} />
-        <Route path='*' element={<NotFound />} />
-        <Route
-          path='/admin'
-          element={
-            <ProtectedRoute>
-              <Admin />
-            </ProtectedRoute>
-          }
-        ></Route>
-      </Routes>
+      <div className="center-wrapper">
+        <nav>
+          <div className="nav-content">
+            <Navbar />
+          </div>
+        </nav>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contacts' element={<Contacts />} />
+          <Route path='/meal/:id' element={<Meal />} />
+          <Route path='*' element={<NotFound />} />
+          <Route
+            path='/admin'
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          ></Route>
+        </Routes>
+      </div>
     </Router>
   );
 }
